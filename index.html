@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>STARWARS</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <script src="assets/javascript/game.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row black">
+            <div class="col-lg-12">
+                <h1 id="playerPrompt">Pick a Character</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-2">
+                <button class="charBox obi-Wan" value="1">
+                    <div class="name">ObiWan</div>
+                    <img src="assets/images/Ewan-McGregor-plays-the-stalwart-Obi-Wan-Kenobi-in-Star-Wars.jpg">
+                    <div class="obiHealth" style="text-align: center">150</div>
+                </button>
+            </div>
+            <div class="col-md-2">
+                <button class="charBox Mace-Windu" value="2">
+                    <div class="name">Mace Windu</div>
+                    <img src="assets/images/Mace_Windu.png">
+                    <div class="maceHealth" style="text-align: center">100</div>
+                </button>
+            </div>
+            <div class="col-md-2">
+                <button class="charBox DarthVader" value="3">
+                    <div class="name">Darth Vader</div>
+                    <img src="assets/images/images.jpeg">
+                    <div class="darthHealth" style="text-align: center">120</div>
+                </button>
+            </div>
+            <div class="col-md-2">
+                <button class="charBox Keylo Ren" value="4">
+                    <div class="name">Keylo Ren</div>
+                    <img src="assets/images/kylo-ren-star-wars-fan-art-tony-santiago.jpg">
+                    <div class="keyloHealth" style="text-align: center">100</div>
+                </button>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="narration" style="text-align: center"></h2>
+            </div>
+        </div>
+        <div class="row">
+            <div id="HeroBox" class="col-lg-6">
+
+            </div>
+            <div id="VillianBox" class="col-lg-6">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                    <button id="theAttack">Attack</button>
+            </div>
+            <div class="col-lg-6">
+                    <button id="theReset">Reset</button>
+            </div>
+        </div>
+        
+
+        
+
+    </div>
+</body>
+
+</html>
