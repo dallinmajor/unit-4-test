@@ -95,7 +95,7 @@ window.onload = function () {
     });
 
     $("#theReset").on("click", function(){
-        
+        location.reload();
     })
 
 
