@@ -2,7 +2,7 @@
 window.onload = function () {
 
     class character {
-        constructor(name,heal, attackP, counterP,img) {
+        constructor(name, heal, attackP, counterP, img) {
             this.name = name;
             this.health = heal;
             this.attackPow = attackP;
@@ -10,15 +10,15 @@ window.onload = function () {
         }
     };
 
-    const maceWindu = new character("Mace Windu",100, 7, 12);
-    const obiWan = new character("Obi Wan",150, 6, 10);
-    const keyloRen = new character("Keylo Ren",100, 8, 12);
-    const darthVader = new character("Darth Vader",120, 5, 15);
+    const maceWindu = new character("Mace Windu", 100, 25, 18);
+    const obiWan = new character("Obi Wan", 150, 5, 12);
+    const keyloRen = new character("Keylo Ren", 90, 20, 19);
+    const darthVader = new character("Darth Vader", 120, 5, 20);
 
 
     var currentHero = false;
     var currentVillian = false;
-    
+    var killCount = 0;
 
     function whoThis(char) {
         if (char == 1) {
@@ -40,31 +40,46 @@ window.onload = function () {
     }
 
     function attack() {
-        
+
         currentVillian.health -= currentHero.attackPow;
         currentHero.health -= currentVillian.counterPow;
-        updateHealth();
-        if (currentVillian.health < 1) {
-            $("#VillianBox").empty();
-            $(".narration").text(`You Defeated ${currentVillian.name}! pick another foe!`);
+
+        if (currentHero.health < 1) {
+            $(".narration").text(`${currentVillian.name} struck you down! GAME OVER!`);
+            $("#HeroBox").empty();
+        } else if (currentVillian.health < 1) {
             currentVillian = false;
             VillianHealth = false;
+            killCount = killCount + 1;
 
-        } else if (currentHero < 1) {
-            $(".narration").text(`You were defeated by ${currentVillian.name}! GAME OVER`);
+            if (killCount === 3) {
+                $("#playerPrompt").empty();
+                $("#VillianBox").empty();
+                $(".narration").text(`YOU WIN!`);
+                updateHealth();
+            } else {
+                $("#VillianBox").empty();
+                $(".narration").text(`You Defeated ${currentVillian.name}! pick another foe!`);
+                updateHealth();
+            }
+
+
         } else {
             $(".narration").text(`You hit ${currentVillian.name} for ${currentHero.attackPow} points of damage, recieving ${currentVillian.counterPow} points of damage in return!`);
+            updateHealth();
         }
-        
+
+
+
         if (currentVillian) {
-        currentHero.attackPow += currentHero.attackPow;
-        
+            currentHero.attackPow += currentHero.attackPow;
+
         }
-        
+
     }
 
 
-    $(".charBox").on("click", function() {
+    $(".charBox").on("click", function () {
         charSelected = this;
 
         console.log($(this).val());
@@ -74,19 +89,21 @@ window.onload = function () {
             return;
         } else if (currentHero) {
             currentVillian = whoThis($(this).val());
+            $(this).addClass("enemy");
             $("#VillianBox").append(charSelected);
-            
-            
+
+
         } else {
+            $(this).addClass("hero");
             currentHero = whoThis($(this).val());
             $(charSelected).appendTo("#HeroBox");
-            
+
         }
         console.log(currentHero);
         console.log(currentVillian);
     })
 
-    $("#theAttack").on("click", function() {
+    $("#theAttack").on("click", function () {
         if ((currentHero) && (currentVillian)) {
             attack();
         } else {
@@ -94,11 +111,11 @@ window.onload = function () {
         }
     });
 
-    $("#theReset").on("click", function(){
+    $("#theReset").on("click", function () {
         location.reload();
     })
 
 
-    
+
 
 }

@@ -38,6 +38,25 @@ button {
     color: greenyellow;
 }
 
+.enemy {
+    background-color: firebrick;
+    color: whitesmoke;
+}
+
+.hero {
+    background-color: green;
+    color: whitesmoke;
+}
+
+.centerThis {
+    text-align: center;
+    color: yellow;
+}
+
+#playerPrompt {
+    padding: 20px;
+    text-transform: uppercase;
+}
 
 
 
