@@ -1,20 +1,19 @@
+
+
 img {
     height: 150px;
     width: 150px;
+    
 }
 
 .black {
-    background-color: black;
-    color: aliceblue;
+    color: red;
     text-align: center;
 }
 
 .fightBoxes {
     height: 450px;
     margin: auto;
-    color: white;
-    background-color: grey;
-
 }
 
 .theAttack,
@@ -23,7 +22,20 @@ img {
 }
 
 button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fightZone {
+    height: 250px;
+}
+
+.narration {
+    display: block;
     margin: auto;
+    text-align: center;
+    color: greenyellow;
 }
 
 

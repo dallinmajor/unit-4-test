@@ -68,17 +68,19 @@ window.onload = function () {
         charSelected = this;
 
         console.log($(this).val());
+        $("#playerPrompt").text("Available foes to fight");
 
         if ((currentHero) && (currentVillian)) {
             return;
         } else if (currentHero) {
             currentVillian = whoThis($(this).val());
             $("#VillianBox").append(charSelected);
-            console.log(VillianHealth);
+            
+            
         } else {
             currentHero = whoThis($(this).val());
             $(charSelected).appendTo("#HeroBox");
-            console.log(heroHealth);
+            
         }
         console.log(currentHero);
         console.log(currentVillian);
